@@ -12,4 +12,9 @@ class FizzBuzz
     {
         return true;
     }
+
+    public function getData()
+    {
+        return 1;
+    }
 }
