@@ -45,6 +45,17 @@ class FizzBuzzTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(100, count($this->fizzbuzz->getData()));
     }
 
+    /** @test */
+    public function every_third_number_then_is_fizz()
+    {
+        $numbers = $this->fizzbuzz->getData();
+        for ($i = 1; $i <= count($numbers); $i++) {
+            if ($i % 3 == 0 && $i % 5 != 0) {
+                $this->assertEquals('Fizz', $numbers[$i]);
+            }
+        }
+    }
+
     protected function setUp()
     {
         parent::setUp();

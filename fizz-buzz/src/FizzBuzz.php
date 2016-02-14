@@ -19,7 +19,7 @@ class FizzBuzz
 
         for ($i = 1; $i <= 100; $i++) {
             $numbers[$i] = $i;
-            if ($i == 3) {
+            if ($i % 3 == 0) {
                 $numbers[$i] = 'Fizz';
             }
             if ($i == 5) {
