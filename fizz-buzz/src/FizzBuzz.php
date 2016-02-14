@@ -16,10 +16,20 @@ class FizzBuzz
     public function getData()
     {
         $numbers = [];
-        $numbers[1] = 1;
-        $numbers[3] = 'Fizz';
-        $numbers[5] = 'Buzz';
-        $numbers[15] = 'FizzBuzz';
+
+        for ($i = 1; $i <= 100; $i++) {
+            $numbers[$i] = $i;
+            if ($i == 3) {
+                $numbers[$i] = 'Fizz';
+            }
+            if ($i == 5) {
+                $numbers[$i] = 'Buzz';
+            }
+            if ($i == 15) {
+                $numbers[$i] = 'FizzBuzz';
+            }
+        }
+
         return $numbers;
     }
 }
