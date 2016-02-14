@@ -18,29 +18,25 @@ class FizzBuzzTest extends \PHPUnit_Framework_TestCase
     /** @test */
     public function first_number_is_one()
     {
-        $result = $this->fizzbuzz->getData()[1];
-        $this->assertEquals(1, $result);
+        $this->assertEquals(1, $this->fizzbuzz->getData()[1]);
     }
 
     /** @test */
     public function third_number_is_fizz()
     {
-        $result = $this->fizzbuzz->getData()[3];
-        $this->assertEquals('Fizz', $result);
+        $this->assertEquals('Fizz', $this->fizzbuzz->getData()[3]);
     }
 
     /** @test */
     public function fith_number_is_Buzz()
     {
-        $result = $this->fizzbuzz->getData()[5];
-        $this->assertEquals('Buzz', $result);
+        $this->assertEquals('Buzz', $this->fizzbuzz->getData()[5]);
     }
 
     /** @test */
-    public function fifteen_numberis_fizzbuzz()
+    public function fifteen_number_is_fizzbuzz()
     {
-        $result = $this->fizzbuzz->getData()[15];
-        $this->assertEquals('FizzBuzz', $result);
+        $this->assertEquals('FizzBuzz', $this->fizzbuzz->getData()[15]);
     }
 
     protected function setUp()
