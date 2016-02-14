@@ -35,6 +35,14 @@ class FizzBuzzTest extends \PHPUnit_Framework_TestCase
         $result = $this->fizzbuzz->getData()[5];
         $this->assertEquals('Buzz', $result);
     }
+
+    /** @test */
+    public function fifteen_numberis_fizzbuzz()
+    {
+        $result = $this->fizzbuzz->getData()[15];
+        $this->assertEquals('FizzBuzz', $result);
+    }
+
     protected function setUp()
     {
         parent::setUp();

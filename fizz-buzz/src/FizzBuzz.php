@@ -19,6 +19,7 @@ class FizzBuzz
         $numbers[1] = 1;
         $numbers[3] = 'Fizz';
         $numbers[5] = 'Buzz';
+        $numbers[15] = 'FizzBuzz';
         return $numbers;
     }
 }
