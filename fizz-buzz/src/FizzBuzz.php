@@ -22,7 +22,7 @@ class FizzBuzz
             if ($i % 3 == 0) {
                 $numbers[$i] = 'Fizz';
             }
-            if ($i == 5) {
+            if ($i % 5 == 0) {
                 $numbers[$i] = 'Buzz';
             }
             if ($i == 15) {

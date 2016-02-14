@@ -56,6 +56,17 @@ class FizzBuzzTest extends \PHPUnit_Framework_TestCase
         }
     }
 
+    /** @test */
+    public function every_five_numbers_is_buzz()
+    {
+        $numbers = $this->fizzbuzz->getData();
+        for ($i = 1; $i <= count($numbers); $i++) {
+            if ($i % 5 == 0 && $i % 3 != 0) {
+                $this->assertEquals('Buzz', $numbers[$i]);
+            }
+        }
+    }
+
     protected function setUp()
     {
         parent::setUp();
