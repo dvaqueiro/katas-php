@@ -10,12 +10,6 @@ class FizzBuzzTest extends \PHPUnit_Framework_TestCase
     private $fizzbuzz;
 
     /** @test */
-    public function it_should_test_something()
-    {
-        $this->assertTrue($this->fizzbuzz->changeMe());
-    }
-
-    /** @test */
     public function first_number_is_one()
     {
         $this->assertEquals(1, $this->fizzbuzz->getData()[1]);

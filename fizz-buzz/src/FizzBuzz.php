@@ -2,34 +2,131 @@
 
 namespace FizzBuzz;
 
-class FizzBuzz
+interface RuleMachine
 {
-
     /**
+     * @param $i
+     * @return String
+     */
+    public function generateValue($i);
+
+    public function add(Rule $rule);
+}
+
+interface Rule
+{
+    /**
+     * @param $number
      * @return bool
      */
-    public function changeMe()
+    public function check($number);
+
+    /**
+     * @return String
+     */
+    public function generateValue();
+}
+
+class FizzBuzz
+{
+    const TOTAL = 100;
+
+    public function __construct()
     {
-        return true;
+        $this->ruleMachine = new FizzBuzzRuleMachine();
+        $this->ruleMachine->add(new BuzzRule());
+        $this->ruleMachine->add(new FizzRule());
+        $this->ruleMachine->add(new FizzBuzzRule());
     }
 
     public function getData()
     {
         $numbers = [];
+        for ($i = 1; $i <= self::TOTAL; $i++) {
+            $numbers[$i] = $this->ruleMachine->generateValue($i);
+        }
+        return $numbers;
+    }
 
-        for ($i = 1; $i <= 100; $i++) {
-            $numbers[$i] = $i;
-            if ($i % 3 == 0) {
-                $numbers[$i] = 'Fizz';
-            }
-            if ($i % 5 == 0) {
-                $numbers[$i] = 'Buzz';
-            }
-            if ($i % 15 == 0) {
-                $numbers[$i] = 'FizzBuzz';
+}
+
+class FizzBuzzRuleMachine implements RuleMachine
+{
+    private $_rules;
+
+    /**
+     * @param $i
+     * @return String
+     */
+    public function generateValue($i)
+    {
+        $value = $i;
+        /** @var Rule $rule */
+        foreach ($this->_rules as $rule) {
+            if ($rule->check($i)) {
+                $value = $rule->generateValue();
             }
         }
+        return $value;
+    }
 
-        return $numbers;
+    public function add(Rule $rule)
+    {
+        $this->_rules[] = $rule;
+    }
+}
+
+class FizzBuzzRule implements Rule
+{
+
+    /**
+     * @param $number
+     * @return bool
+     */
+    public function check($number)
+    {
+        return ($number % 15 == 0);
+    }
+
+    /**
+     * @return String
+     */
+    public function generateValue()
+    {
+        return 'FizzBuzz';
+    }
+}
+
+class BuzzRule implements Rule
+{
+
+    /**
+     * @param $number
+     * @return bool
+     */
+    public function check($number)
+    {
+        return ($number % 5 == 0);
+    }
+
+    /**
+     * @return String
+     */
+    public function generateValue()
+    {
+        return 'Buzz';
+    }
+}
+
+class FizzRule implements Rule
+{
+    public function check($number)
+    {
+        return ($number % 3 == 0);
+    }
+
+    public function generateValue()
+    {
+        return 'Fizz';
     }
 }
