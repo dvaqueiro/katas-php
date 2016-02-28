@@ -3,6 +3,7 @@
 namespace FizzBuzz\Test;
 
 use FizzBuzz\FizzBuzz;
+use FizzBuzz\RuleMachine\FizzBuzzRuleMachine;
 
 class FizzBuzzTest extends \PHPUnit_Framework_TestCase
 {
@@ -75,6 +76,6 @@ class FizzBuzzTest extends \PHPUnit_Framework_TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->fizzbuzz = new FizzBuzz();
+        $this->fizzbuzz = new FizzBuzz(new FizzBuzzRuleMachine());
     }
 }
