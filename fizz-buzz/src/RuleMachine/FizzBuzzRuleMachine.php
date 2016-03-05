@@ -5,18 +5,18 @@ use FizzBuzz\Rule\Rule;
 
 class FizzBuzzRuleMachine implements RuleMachine
 {
-    private $_rules;
+    private $rules;
 
     /**
-     * @param $i
+     * @param $number
      * @return String
      */
-    public function generateValue($i)
+    public function generateValue($number)
     {
-        $value = $i;
+        $value = $number;
         /** @var Rule $rule */
-        foreach ($this->_rules as $rule) {
-            if ($rule->check($i)) {
+        foreach ($this->rules as $rule) {
+            if ($rule->check($number)) {
                 $value = $rule->generateValue();
             }
         }
@@ -25,6 +25,6 @@ class FizzBuzzRuleMachine implements RuleMachine
 
     public function add(Rule $rule)
     {
-        $this->_rules[] = $rule;
+        $this->rules[] = $rule;
     }
 }
