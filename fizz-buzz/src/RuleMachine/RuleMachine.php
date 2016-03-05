@@ -7,10 +7,13 @@ use FizzBuzz\Rule\Rule;
 interface RuleMachine
 {
     /**
-     * @param $i
-     * @return String
+     * @param $number
+     * @return mixed
      */
-    public function generateValue($i);
+    public function generateValue($number);
 
+    /**
+     * @param Rule $rule
+     */
     public function add(Rule $rule);
 }
