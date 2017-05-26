@@ -1,9 +1,14 @@
 <?php
 namespace FizzBuzz\Rule;
 
-class BuzzRule implements Rule
+class DivisibleByFiveRule implements Rule
 {
-    const VALUE = 'Buzz';
+    private $valueIfCheck;
+
+    function __construct($valueIfCheck)
+    {
+        $this->valueIfCheck = $valueIfCheck;
+    }
 
     /**
      * @param $number
@@ -19,6 +24,6 @@ class BuzzRule implements Rule
      */
     public function generateValue()
     {
-        return self::VALUE;
+        return $this->valueIfCheck;
     }
 }
